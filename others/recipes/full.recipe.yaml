@@ -15,15 +15,9 @@ install_files: >-
   lua/cold_word_drop/*.*
   default.yaml
   weasel.yaml
-  rime_frost.schema.yaml
-  rime_frost.dict.yaml
+  rilinic.schema.yaml
+  rilinic.dict.yaml
   t9.schema.yaml
-  rime_frost_double_pinyin.schema.yaml
-  rime_frost_double_pinyin_abc.schema.yaml
-  rime_frost_double_pinyin_mspy.schema.yaml
-  rime_frost_double_pinyin_sogou.schema.yaml
-  rime_frost_double_pinyin_flypy.schema.yaml
-  rime_frost_double_pinyin_ziguang.schema.yaml
   symbols_v.yaml
   radical_pinyin.schema.yaml
   radical_pinyin.dict.yaml
