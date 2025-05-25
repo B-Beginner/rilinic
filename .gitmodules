@@ -1,0 +1,3 @@
+[submodule "clinic_dicts"]
+	path = clinic_dicts
+	url = git@github.com:B-Beginner/rime_clinic.git
