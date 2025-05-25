@@ -373,16 +373,16 @@ radical_lookup:
   tag: radical_lookup
   dictionary: radical_pinyin
   enable_user_dict: false
-  prefix: "uU"  # 反查前缀（反查时前缀会消失影响打英文所以设定为两个字母，或可改成一个非字母符号），与 recognizer/patterns/radical_lookup 匹配
+  prefix: "vv"  # 反查前缀（反查时前缀会消失影响打英文所以设定为两个字母，或可改成一个非字母符号），与 recognizer/patterns/radical_lookup 匹配
   tips: "  〔拆字〕"
   comment_format:
     - erase/^.*$//
 # 部件拆字滤镜
-radical_reverse_lookup:
-  tags: [ radical_lookup ]
+# radical_reverse_lookup:
+  # tags: [ radical_lookup ]
   # dictionary 为拼音标注来源。目前是显示本方案词库的注音，可去部件拆字方案下载更全的、带声调的、已编译好的词典
   # https://github.com/mirtlecn/rime-radical-pinyin?tab=readme-ov-file#%E5%8F%8D%E6%9F%A5%E5%B8%A6%E5%A3%B0%E8%B0%83%E6%B3%A8%E9%9F%B3
-  dictionary: rilinic
+  # dictionary: rilinic
   # comment_format:     # 自定义 comment，例如在左右加上括号
   #  - xform/^/(/
   #  - xform/$/)/
@@ -393,7 +393,7 @@ recognizer:
   import_preset: default  # 从 default.yaml 继承通用的
   patterns:  # 再增加方案专有的：
     punct: "^/([0-9]|10|[A-Za-z]+)$"    # 响应 symbols_v.yaml 的 symbols，用 'v' 替换 '/'
-    radical_lookup: "^uU[a-z]+$"        # 响应部件拆字的反查，与 radical_lookup/prefix 匹配
+    radical_lookup: "^vv[a-z]+$"        # 响应部件拆字的反查，与 radical_lookup/prefix 匹配
     unicode: "^U[a-f0-9]+"              # 脚本将自动获取第 2 个字符 U 作为触发前缀，响应 lua_translator@*unicode，输出 Unicode 字符
     number: "^R[0-9]+[.]?[0-9]*"        # 脚本将自动获取第 2 个字符 R 作为触发前缀，响应 lua_translator@*number_translator，数字金额大写
     gregorian_to_lunar: "^N[0-9]{1,8}"  # 脚本将自动获取第 2 个字符 N 作为触发前缀，响应 lua_translator@*lunar，公历转农历，输入 N20240115 得到「二〇二三年腊月初五」

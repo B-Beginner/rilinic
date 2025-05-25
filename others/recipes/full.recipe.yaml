@@ -7,6 +7,8 @@ recipe:
     完整安装、更新
 install_files: >-
   cn_dicts/*.*
+  clinic_dicts/rime_clinic_dicts/cn_dict/*.*
+  clinic_dicts/rime_clinic_dicts/en_dict/*.* 
   en_dicts/*.*
   cn_dicts_cell/*.*
   opencc/*.*
@@ -17,7 +19,6 @@ install_files: >-
   weasel.yaml
   rilinic.schema.yaml
   rilinic.dict.yaml
-  t9.schema.yaml
   symbols_v.yaml
   radical_pinyin.schema.yaml
   radical_pinyin.dict.yaml

@@ -20,8 +20,6 @@ T恤衫	Txushan
 T恤衫	txushan
 AD钙奶	ADgainai
 AD钙奶	adgainai
-UU加速器	UUjiasuqi
-UU加速器	uujiasuqi
 Cinity厅	Cinityting
 Cinity厅	cinityting
 Eul的神圣法杖	Euldeshenshengfazhang
