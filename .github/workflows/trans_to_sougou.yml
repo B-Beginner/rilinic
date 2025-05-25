@@ -1,0 +1,48 @@
+name: Transform Rime Clinic Dicts to Sougou
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  transform:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install rimetool
+      run: pip install rimetool
+
+    - name: Process Rime Clinic Dicts
+      run: |
+        for file in rime_clinic_dicts/cn_dict/*; do
+          rimetool -i "$file" -t tosougou
+          prefix=$(basename "$file" | cut -d '.' -f 1)
+          mv "/home/runner/work/rime_clinic/rime_clinic/rimetool_output/tosougou_output.txt" "/home/runner/work/rime_clinic/rime_clinic/sougou_dicts/cn_dict/$prefix.txt"
+        done
+        for file in rime_clinic_dicts/en_dict/*; do
+          rimetool -i "$file" -t tosougou
+          prefix=$(basename "$file" | cut -d '.' -f 1)
+          mv "/home/runner/work/rime_clinic/rime_clinic/rimetool_output/tosougou_output.txt" "/home/runner/work/rime_clinic/rime_clinic/sougou_dicts/en_dict/$prefix.txt"
+        done
+    - name: Add processed files to git
+      run: |
+        git config --local user.email ${{ secrets.USER_EMAIL }}
+        git config --local user.name ${{ secrets.USER_NAME }}
+        git add /home/runner/work/rime_clinic/rime_clinic/sougou_dicts/cn_dict/*
+        git add /home/runner/work/rime_clinic/rime_clinic/sougou_dicts/en_dict/*
+        git commit -m "github bot 自动转换rime词典到搜狗词典"
+    - name: Commit and push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.UPLOAD_TOKEN }}
+        branch: master
