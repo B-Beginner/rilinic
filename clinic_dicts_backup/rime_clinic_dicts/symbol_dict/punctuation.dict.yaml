@@ -1,0 +1,11 @@
+# Rime dictionary
+# encoding: utf-8
+
+---
+name: punctuation
+version: "2025-03-27"
+sort: by_weight
+...
+
+^	tuo zi fu	1
+^	cha ru ji hao	1

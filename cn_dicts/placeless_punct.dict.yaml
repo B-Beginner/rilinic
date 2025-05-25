@@ -1,0 +1,12 @@
+# Rime dictionary
+# encoding: utf-8
+# 参考 https://placeless.net/blog/rime-squirrel-customization-2021
+
+---
+name: placeless_punct
+version: "0.2"
+sort: by_weight
+...
+
+。	.	1
+，	,	1
